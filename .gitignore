@@ -1,0 +1,7 @@
+
+  # Backup Files
+*.swp
+*~
+
+  # Others
+fix_repo.sh
