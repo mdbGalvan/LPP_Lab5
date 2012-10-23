@@ -1,8 +1,6 @@
-# File : ppt_class.rb
+# File : ppt2.rb
 
-# Esta clase simulará el juego de piedra, papel y tijera
-# Aunque no la vamos a utilizar en esta práctica, pero es bastante interesante
-# incluso para aprender el concepto de método de clase y forma de llamarlo
+# Esta clase simulará el juego de piedra, papel y tijera mediante un método de clase
 class Ppt
   
   # Variables de clase: 
