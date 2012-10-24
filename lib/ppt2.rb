@@ -9,16 +9,16 @@ class Ppt
       # Array que almacena las 3 opciones posibles
   @@options = @@wins.keys
   
-  # Método de clase
+  # Definimos dentro métodos de clase
   class << self
     
-    # Método de Instancia
+    # Método de clase, Ppt.play()
     def play (player_option)
       # Convierto la opción del jugador de string a Symbol
       player_option = player_option.to_sym
       
       # Lanzo un error en caso del que la opción introducida por el usuario no sea una de las posibles
-      raise SystaxError, " Jugada incorrecta, debes elegir : '#{opcions.join(', ')}'" unless @@options.include? player_option
+      raise SystaxError, " Jugada incorrecta, debes elegir : '#{@@opcions.join(', ')}'" unless @@options.include? player_option
       
       # Mediante el hacer (sample) se elige una opción para la computadora
       computer_option = @@options.sample
