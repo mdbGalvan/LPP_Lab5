@@ -19,22 +19,24 @@ class Ppt
     player_option = player_option.to_sym
     
     # Lanzo un error en caso del que la opción introducida por el usuario no sea una de las posibles
-    raise SystaxError, " Jugada incorrecta, debes elegir : '#{@@opcions.join(', ')}'" unless @@options.include? player_option
+    raise unless @@options.include? player_option
     
     # Inicializo los atributos
     @player_option = player_option # Symbol
-    @computer_option = @@options.sample # Symbol
-    @winner = self.play # 0 = empate, -1 = máquina, 1 = jugador externo
+    @computer_option = player_option # Symbol
+    @winner = 0 # 0 = empate, -1 = máquina, 1 = jugador externo
   end
   
   # Método que estable el valor del atributo @player_option
-  def player_option(player_option)
-    @player_option = player_option.to_sym
+  def player_option(player_options)
+    raise unless @@options.include? player_options
+    @player_option = player_options.to_sym
   end
   
   # Método que estable el valor del atributo @computer_option
-  def computer_option(computer_option)
-    @computer_option = computer_option.to_sym
+  def computer_option(computer_options)
+    raise unless @@options.include? computer_options
+    @computer_option = computer_options.to_sym
   end  
   
   # Método del objeto que determinará quién gana numéricamente, para luego poder hacer media
@@ -68,6 +70,7 @@ class Ppt
   # Determina la media, si se realizara el juego n veces, con la misma jugada para el jugador
   # y la jugada de la máquina aleatoriamente
   def avg (n)
+    raise unless ( n.is_a?(Numeric) && (n > 0) )
     media = 0.0
     n.times do  |n|
       self.computer_option(@@options.sample)
@@ -80,5 +83,6 @@ class Ppt
 end  
 
 #C = Ppt.new("rock")
-#puts C.avg(10)
+#puts C.avg(-1)
 #puts C.to_s
+
